@@ -11,7 +11,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   url: 'https://ayeshalee88.github.io',
-  baseUrl: '/ai-book/',
+  baseUrl: '/',
 
   organizationName: 'ayeshalee88',
   projectName: 'ai-book',
