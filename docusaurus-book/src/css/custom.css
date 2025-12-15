@@ -1,0 +1,233 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styles for the Physical AI & Humanoid Robotics book */
+.book-intro {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.chapter-intro {
+  border-left: 4px solid var(--ifm-color-primary);
+  padding-left: 1rem;
+  margin: 2rem 0;
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.interactive-demo-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-background-surface-color);
+}
+
+.code-example {
+  margin: 1.5rem 0;
+}
+
+.diagram-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.diagram-container img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+}
+
+/* Custom styles for robotics diagrams and code */
+.robot-diagram {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.code-block-math {
+  overflow-x: auto;
+}
+
+.interactive-component {
+  margin: 20px 0;
+  padding: 15px;
+  border-left: 4px solid var(--ifm-color-primary);
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme='dark'] .interactive-component {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Styles for equation blocks */
+.equation-block {
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+/* Enhanced code block styling */
+.code-block-robotics {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-variant-ligatures: none;
+}
+
+/* Accessibility improvements */
+/* Focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --ifm-color-primary: #0066cc;
+    --ifm-color-primary-dark: #004c99;
+    --ifm-color-primary-darker: #003d7a;
+    --ifm-color-primary-darkest: #002952;
+    --ifm-color-primary-light: #3385ff;
+    --ifm-color-primary-lighter: #66a3ff;
+    --ifm-color-primary-lightest: #99c2ff;
+  }
+
+  [data-theme='dark'] {
+    --ifm-color-primary: #338cff;
+    --ifm-color-primary-dark: #0066cc;
+    --ifm-color-primary-darker: #0052a3;
+    --ifm-color-primary-darkest: #003d7a;
+    --ifm-color-primary-light: #66a3ff;
+    --ifm-color-primary-lighter: #99c2ff;
+    --ifm-color-primary-lightest: #cce1ff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Better color contrast for text */
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Improved heading contrast */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ifm-heading-color);
+}
+
+/* Better link styling */
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 3px;
+}
+
+/* Accessible table styling */
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.markdown table th,
+.markdown table td {
+  padding: 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  text-align: left;
+}
+
+/* Accessible alert styling */
+.alert {
+  border-left-width: 4px;
+}
+
+.alert--info {
+  border-left-color: var(--ifm-alert-border-color);
+}
+
+.alert--warning {
+  border-left-color: var(--ifm-color-warning);
+}
+
+.alert--danger {
+  border-left-color: var(--ifm-color-danger);
+}
+
+/* Accessible code block styling */
+.prism-code {
+  padding: 1rem;
+  border-radius: var(--ifm-global-radius);
+  font-size: var(--ifm-code-font-size);
+}
+
+/* Better button contrast */
+.button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--ifm-global-radius);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-weight: var(--ifm-button-font-weight);
+}
+
+.button:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,31 @@
+/* Ensure the hero banner itself is full height and centers content vertically */
+.heroBanner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical centering */
+  align-items: center;     /* Horizontal centering */
+  text-align: center;      /* Centers text elements */
+  min-height: 50vh;       /* Optional: make it full viewport height for strong centering */
+  padding: 4rem 0;         /* Adjust padding if needed */
+}
+
+/* Center the inner container content explicitly */
+.container {
+  text-align: center;
+  max-width: 800px;        /* Optional: limit width for better readability */
+}
+
+/* Ensure the buttons div is centered */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Optional: Make title and subtitle more centered if needed */
+.hero__title,
+.hero__subtitle {
+  margin: 0 auto;
+  width: 100%;
+}

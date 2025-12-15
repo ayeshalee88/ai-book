@@ -1,0 +1,45 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 290px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(26, 188, 156, 0.3); /* Subtle teal border */
+}
+.featureSvg {
+  position: relative;
+}
+.featureSvg:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(26, 188, 156, 0.4);
+}
+
+/* Optional: Add hover effect */
+.featureSvg:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+  .featureSvg {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .featureSvg {
+    height: 120px;
+    width: 120px;
+  }
+}

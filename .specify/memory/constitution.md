@@ -1,55 +1,32 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Physical AI & Humanoid Robotics: Embodied Intelligence in the Physical World Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Accessible Technical Communication
+Technical content must balance theoretical depth with practical accessibility for engineers, researchers, and students. All concepts should be explained with clear language, intuitive examples, and hierarchical organization that builds from fundamentals to advanced applications.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Interactive Learning Experience
+Content must leverage Docusaurus MDX to create engaging, interactive experiences. Chapters should be structured hierarchically with fundamentals, integration techniques, case studies, and deployment guides that allow readers to explore concepts dynamically.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Reproducible Code Examples
+All code snippets in Python, ROS, and relevant frameworks must be tested and verified for reproducibility. Examples must bridge digital AI (e.g., LLMs) with physical embodiments (e.g., sensors, actuators) to demonstrate practical implementation of embodied intelligence.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Ethical and Safety First Approach
+Ethical considerations and safety protocols must be integrated throughout all content. Humanoid robotics applications require explicit discussion of safety measures, responsible deployment, and societal impact, with references to credible sources and first principles.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Digital-Physical Bridge Focus
+Content must emphasize the connection between digital brains (AI algorithms) and physical bodies (robot hardware). Visual aids like diagrams for sensorimotor loops and control architectures should illustrate how intelligence manifests in physical form.
 
-### [PRINCIPLE_6_NAME]
+### VI. Modular and Maintained Content
+All materials must be structured modularly for easy updates, SEO optimization, and GitHub Pages deployment. Documentation should support long-term maintenance and evolution of the content as technology advances.
 
+## Technical Standards
+All code examples must be in Python, ROS, and relevant robotics frameworks. Content should include comprehensive code samples, configuration files, and implementation guides that readers can directly apply to their projects.
 
-[PRINCIPLE__DESCRIPTION]
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Educational Methodology
+Content development must follow a pedagogical approach that combines theory with hands-on practice. Each concept should be introduced with foundational knowledge, followed by practical examples, and concluded with real-world applications and case studies.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution governs all content creation for the "Physical AI & Humanoid Robotics: Embodied Intelligence in the Physical World" book. All contributions must align with these principles. Updates to this constitution require explicit review and approval process documenting the rationale for changes.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-10 | **Last Amended**: 2025-12-10

@@ -1,0 +1,153 @@
+.codeEmbedContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  margin: 16px 0;
+  overflow: hidden;
+  background-color: var(--ifm-background-surface-color);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.codeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.copyButton, .runButton {
+  padding: 4px 12px;
+  background-color: var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease;
+}
+
+.copyButton:hover, .runButton:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+.runButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.description {
+  margin: 8px 16px 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.codeBlock {
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.pre {
+  margin: 0;
+  padding: 16px;
+  background-color: var(--ifm-background-surface-color);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.codeFooter {
+  padding: 8px 16px;
+  background-color: var(--ifm-color-emphasis-100);
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.languageTag {
+  padding: 2px 8px;
+  background-color: var(--ifm-color-primary-dark);
+  color: white;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+/* Executable Code Component */
+.executableContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  margin: 16px 0;
+  overflow: hidden;
+  background-color: var(--ifm-background-surface-color);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.outputBlock {
+  padding: 16px;
+  background-color: var(--ifm-color-emphasis-100);
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.outputPre {
+  margin: 8px 0 0 0;
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .codeHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .copyButton, .runButton {
+    align-self: flex-end;
+  }
+
+  .pre {
+    padding: 12px;
+    font-size: 0.8rem;
+  }
+
+  .outputPre {
+    font-size: 0.8rem;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .codeEmbedContainer {
+  background-color: var(--ifm-background-surface-color);
+}
+
+[data-theme='dark'] .codeHeader {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .codeFooter {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .outputBlock {
+  background-color: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .outputPre {
+  background-color: var(--ifm-background-color);
+}

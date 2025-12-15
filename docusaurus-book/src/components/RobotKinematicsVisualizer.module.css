@@ -1,0 +1,101 @@
+.visualizerContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  margin: var(--ifm-spacing-vertical) 0;
+  background-color: var(--ifm-background-surface-color);
+  font-family: var(--ifm-font-family-base);
+}
+
+.controls {
+  margin: var(--ifm-spacing-vertical) 0;
+}
+
+.sliderContainer {
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
+.sliderContainer label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  color: var(--ifm-font-color-base);
+}
+
+.sliderContainer input[type="range"] {
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: var(--ifm-color-emphasis-200);
+  outline: none;
+}
+
+.sliderContainer input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  cursor: pointer;
+}
+
+.sliderContainer input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  cursor: pointer;
+}
+
+.canvasContainer {
+  text-align: center;
+  margin: var(--ifm-spacing-vertical) 0;
+}
+
+.robotCanvas {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  background-color: white;
+}
+
+.infoPanel {
+  margin-top: var(--ifm-spacing-vertical);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: var(--ifm-global-radius);
+}
+
+.infoPanel h4 {
+  margin-top: 0;
+  color: var(--ifm-font-color-base);
+}
+
+.infoPanel p {
+  margin: 0.25rem 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9em;
+}
+
+.fallbackContent {
+  padding: 1rem;
+  background-color: var(--ifm-color-warning-background);
+  border-left: 4px solid var(--ifm-color-warning);
+  margin: 1rem 0;
+}
+
+.fallbackContent h4 {
+  margin-top: 0;
+  color: var(--ifm-color-warning-contrast-background);
+}
+
+.fallbackContent ul {
+  margin-bottom: 0;
+}
+
+@media (max-width: 500px) {
+  .robotCanvas {
+    width: 100%;
+    height: auto;
+  }
+}

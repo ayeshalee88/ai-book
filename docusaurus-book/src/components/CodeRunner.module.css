@@ -1,0 +1,135 @@
+.codeRunnerContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  margin: var(--ifm-spacing-vertical) 0;
+  background-color: var(--ifm-background-surface-color);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
+.languageBadge {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--ifm-global-radius);
+  font-size: 0.8rem;
+}
+
+.codeInput {
+  width: 100%;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--ifm-code-font-size);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-background-color);
+  min-height: 200px;
+  resize: vertical;
+}
+
+.codeInput:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+
+.controls {
+  margin: var(--ifm-spacing-vertical) 0;
+}
+
+.controls button {
+  margin-right: var(--ifm-spacing-horizontal);
+  padding: var(--ifm-button-padding-vertical) var(--ifm-button-padding-horizontal);
+  border: none;
+  border-radius: var(--ifm-global-radius);
+  color: var(--ifm-button-color);
+  cursor: pointer;
+  font-weight: var(--ifm-button-font-weight);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.primaryButton {
+  background-color: var(--ifm-color-primary);
+}
+
+.primaryButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.secondaryButton {
+  background-color: var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-0);
+}
+
+.secondaryButton:hover {
+  background-color: var(--ifm-color-emphasis-400);
+}
+
+.controls button:disabled {
+  background-color: var(--ifm-color-emphasis-200);
+  cursor: not-allowed;
+}
+
+/* Focus styles for accessibility */
+.controls button:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: var(--ifm-global-radius);
+}
+
+.output {
+  margin-top: var(--ifm-spacing-vertical);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: var(--ifm-global-radius);
+  font-family: var(--ifm-font-family-monospace);
+  white-space: pre-wrap;
+}
+
+.error {
+  background-color: var(--ifm-color-danger-background);
+  color: var(--ifm-color-danger-contrast-background);
+}
+
+.fallbackContent {
+  padding: 1rem;
+  background-color: var(--ifm-color-warning-background);
+  border-left: 4px solid var(--ifm-color-warning);
+  margin: 1rem 0;
+}
+
+.fallbackContent h4 {
+  margin-top: 0;
+  color: var(--ifm-color-warning-contrast-background);
+}
+
+.fallbackCode {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 0.5rem;
+  border-radius: var(--ifm-global-radius);
+  overflow-x: auto;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--ifm-code-font-size);
+}
+
+/* Visually hidden class for screen readers */
+.visuallyHidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

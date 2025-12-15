@@ -1,0 +1,19 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <title>2-DOF Robot Arm Diagram</title>
+  <desc>Simple 2-DOF robot arm with two links and joints</desc>
+  <!-- Base -->
+  <rect x="180" y="250" width="40" height="30" fill="#555" />
+  <!-- Link 1 -->
+  <line x1="200" y1="250" x2="300" y2="150" stroke="#2e8555" stroke-width="10" stroke-linecap="round" />
+  <!-- Joint 1 -->
+  <circle cx="200" cy="250" r="8" fill="#333" />
+  <!-- Link 2 -->
+  <line x1="300" y1="150" x2="370" y2="180" stroke="#2e8555" stroke-width="8" stroke-linecap="round" />
+  <!-- Joint 2 -->
+  <circle cx="300" cy="150" r="6" fill="#333" />
+  <!-- End effector -->
+  <circle cx="370" cy="180" r="10" fill="#d95757" />
+  <!-- Workspace -->
+  <circle cx="200" cy="250" r="150" fill="none" stroke="#ccc" stroke-width="1" stroke-dasharray="5,5" />
+  <text x="20" y="30" font-family="Arial" font-size="16" fill="#333">2-DOF Robot Arm</text>
+</svg>

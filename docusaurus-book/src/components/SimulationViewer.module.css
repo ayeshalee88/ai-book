@@ -1,0 +1,138 @@
+.simulationContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: var(--ifm-background-surface-color);
+  font-family: var(--ifm-font-family-base);
+}
+
+.simulationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.controlButton {
+  padding: 6px 12px;
+  background-color: var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.controlButton:hover {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+.playButton {
+  background-color: var(--ifm-color-success);
+  color: white;
+  border-color: var(--ifm-color-success-dark);
+}
+
+.playButton:hover {
+  background-color: var(--ifm-color-success-dark);
+}
+
+.pauseButton {
+  background-color: var(--ifm-color-warning);
+  color: white;
+  border-color: var(--ifm-color-warning-dark);
+}
+
+.pauseButton:hover {
+  background-color: var(--ifm-color-warning-dark);
+}
+
+.description {
+  margin: 8px 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+}
+
+.simulationArea {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+  padding: 16px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.simulationSvg {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+}
+
+.simulationInfo {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 12px;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .simulationHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+
+  .simulationArea {
+    padding: 8px;
+  }
+
+  .simulationSvg {
+    width: 100%;
+    height: auto;
+  }
+
+  .simulationInfo {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .simulationContainer {
+  background-color: var(--ifm-background-surface-color);
+}
+
+[data-theme='dark'] .simulationArea {
+  background-color: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .simulationInfo {
+  background-color: var(--ifm-color-emphasis-200);
+}

@@ -1,0 +1,201 @@
+---
+id: "module-3-ai-robot-brain"
+title: "The AI Robot Brain"
+sidebar_label: "Module 3: AI Robot Brain"
+---
+
+# The AI Robot Brain
+
+## Introduction to AI-Powered Robot Brains
+
+Modern humanoid robots require sophisticated artificial intelligence systems to process sensory information, make decisions, and execute complex behaviors. The AI robot brain represents the cognitive layer that transforms raw sensor data into meaningful actions and intelligent responses to the environment.
+
+Unlike traditional programmable robots, AI-powered humanoid robots utilize neural networks, reinforcement learning, and other advanced AI techniques to adapt to novel situations, learn from experience, and exhibit flexible behavior patterns.
+
+## Isaac ROS and Hardware Acceleration
+
+Isaac ROS bridges the gap between NVIDIA's GPU-accelerated computing platforms and the ROS 2 ecosystem, providing hardware-accelerated perception and processing capabilities essential for real-time AI applications in robotics.
+
+### Key Components of Isaac ROS:
+- **Hardware Acceleration**: Leverages CUDA, TensorRT, and other NVIDIA technologies for accelerated AI inference
+- **Perception Pipeline**: Optimized computer vision and sensor processing pipelines
+- **Real-time Performance**: Ensures deterministic timing for safety-critical robotic applications
+- **ROS 2 Integration**: Seamless integration with existing ROS 2 ecosystems
+
+### Example Isaac ROS Node:
+```python
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import Image
+from cv_bridge import CvBridge
+import torch
+import numpy as np
+
+class IsaacAIPerceptionNode(Node):
+    def __init__(self):
+        super().__init__('isaac_ai_perception')
+
+        # Initialize CV Bridge
+        self.bridge = CvBridge()
+
+        # Load pre-trained model (optimized for TensorRT)
+        self.model = torch.hub.load("ultralytics/yolov5", "yolov5s", pretrained=True)
+        self.model.to("cuda")  # Utilize GPU acceleration
+
+        # Subscriber for camera feed
+        self.subscription = self.create_subscription(
+            Image,
+            '/camera/color/image_raw',
+            self.image_callback,
+            10)
+
+        # Publisher for detections
+        self.detection_publisher = self.create_publisher(
+            DetectionArray,
+            '/ai/detections',
+            10)
+
+    def image_callback(self, msg):
+        # Convert ROS image to OpenCV format
+        cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="passthrough")
+
+        # Perform inference using GPU acceleration
+        results = self.model(cv_image)
+
+        # Process detections and publish results
+        detections = self.process_detections(results)
+        self.detection_publisher.publish(detections)
+```
+
+## Visual SLAM and Nav2 Fundamentals
+
+Simultaneous Localization and Mapping (SLAM) enables robots to navigate unknown environments while simultaneously building maps and determining their position within them. Visual SLAM utilizes camera inputs for this purpose, making it particularly suitable for humanoid robots with rich visual sensing capabilities.
+
+### Visual SLAM Pipeline:
+1. **Feature Detection**: Extract distinctive visual features from camera images
+2. **Feature Matching**: Match features across consecutive frames
+3. **Pose Estimation**: Calculate camera pose changes between frames
+4. **Map Building**: Construct 3D map of the environment
+5. **Loop Closure**: Recognize previously visited locations to correct drift
+
+### Nav2 Integration:
+Navigation2 (Nav2) provides a comprehensive navigation stack for ROS 2, incorporating:
+- Global and local path planners
+- Costmap management
+- Controller interfaces
+- Behavior trees for complex navigation behaviors
+
+```yaml
+# Example Nav2 configuration for humanoid robot
+bt_navigator:
+  ros__parameters:
+    use_sim_time: False
+    global_frame: map
+    robot_base_frame: base_link
+    bt_xml_filename: "navigate_w_replanning_and_recovery.xml"
+    default_server_timeout: 20
+    enable_groot_monitoring: True
+    groot_zmq_publisher_port: 1666
+    groot_zmq_server_port: 1667
+
+    # Recovery behaviors
+    recovery_plugins: ["spin", "backup", "wait"]
+    spin:
+      plugin: "nav2_recoveries/Spin"
+    backup:
+      plugin: "nav2_recoveries/BackUp"
+    wait:
+      plugin: "nav2_recoveries/Wait"
+```
+
+## Path Planning for Bipedal Humanoid Robots
+
+Path planning for humanoid robots presents unique challenges compared to wheeled robots due to:
+- Complex kinematics and balance requirements
+- Discrete footstep planning
+- Dynamic stability constraints
+- Terrain traversability considerations
+
+### Key Algorithms:
+- **Footstep Planning**: Algorithms that determine optimal placement of feet for stable locomotion
+- **Dynamic Movement Primitives (DMP)**: Learnable movement representations for stable gaits
+- **Model Predictive Control (MPC)**: Optimization-based control considering future states
+- **Whole-body Control**: Coordination of all joints for stable movement
+
+### Example Footstep Planner:
+```python
+class FootstepPlanner:
+    def __init__(self):
+        self.support_polygon = []  # Convex hull of support feet
+        self.center_of_mass = np.array([0.0, 0.0])
+
+    def plan_footsteps(self, start_pose, goal_pose, terrain_map):
+        """Plan sequence of footsteps from start to goal"""
+        footsteps = []
+
+        # Calculate initial stable stance
+        left_foot = self.calculate_stable_foot_position(start_pose, 'left')
+        right_foot = self.calculate_stable_foot_position(start_pose, 'right')
+
+        current_pos = start_pose
+        while not self.reached_goal(current_pos, goal_pose):
+            # Determine next foot to move based on stability
+            next_foot = self.select_next_foot(left_foot, right_foot)
+
+            # Calculate next foot position considering terrain
+            next_position = self.calculate_next_step(
+                current_pos, goal_pose, terrain_map, next_foot)
+
+            # Verify stability of proposed step
+            if self.is_stable_after_step(next_position, next_foot):
+                footsteps.append(next_position)
+                current_pos = next_position
+
+                # Update support polygon
+                self.update_support_polygon(footsteps)
+
+        return footsteps
+
+    def is_stable_after_step(self, new_foot_pos, foot_type):
+        """Check if robot remains stable after taking this step"""
+        # Calculate center of mass projection
+        com_projection = self.project_com_to_ground()
+
+        # Check if COM is within support polygon
+        return self.point_in_convex_polygon(com_projection, self.support_polygon)
+```
+
+## Cognitive Architecture for Humanoid Robots
+
+The AI robot brain integrates multiple cognitive subsystems:
+
+### Perception System
+- Multi-modal sensor fusion
+- Object recognition and tracking
+- Scene understanding
+- Semantic mapping
+
+### Memory Systems
+- Short-term working memory for immediate tasks
+- Long-term episodic memory for experience recall
+- Semantic memory for general knowledge
+- Procedural memory for learned skills
+
+### Decision-Making System
+- Goal-oriented reasoning
+- Action selection mechanisms
+- Conflict resolution
+- Resource allocation
+
+### Learning System
+- Reinforcement learning for skill acquisition
+- Imitation learning from demonstrations
+- Transfer learning across tasks
+- Continuous adaptation to new environments
+
+<figure>
+  <img src="/img/ai-robot-brain-architecture.png" alt="AI Robot Brain Architecture Diagram" />
+  <figcaption>Architecture showing the integrated cognitive systems of an AI-powered humanoid robot</figcaption>
+</figure>
+
+This cognitive architecture enables humanoid robots to exhibit intelligent, adaptive behavior while maintaining safety and stability in complex environments.

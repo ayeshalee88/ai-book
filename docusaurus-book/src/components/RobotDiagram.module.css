@@ -1,0 +1,275 @@
+.robotDiagramContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  background-color: var(--ifm-background-surface-color);
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 16px 0;
+  font-size: 1.2rem;
+  color: var(--ifm-color-primary);
+}
+
+.diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  margin: 16px 0;
+}
+
+/* Humanoid Robot Diagram */
+.humanoidDiagram {
+  position: relative;
+  width: 200px;
+  height: 300px;
+}
+
+.head {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-emphasis-500);
+}
+
+.torso {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 100px;
+  background-color: var(--ifm-color-primary-dark);
+  border: 2px solid var(--ifm-color-emphasis-500);
+  border-radius: 8px;
+}
+
+.arm {
+  position: absolute;
+  width: 20px;
+  height: 80px;
+  background-color: var(--ifm-color-primary-darker);
+  border: 2px solid var(--ifm-color-emphasis-500);
+}
+
+.arm:nth-child(2) { /* Left arm */
+  top: 70px;
+  left: 30%;
+  transform: translateX(-50%);
+  border-radius: 10px 10px 0 0;
+}
+
+.arm:nth-child(3) { /* Right arm */
+  top: 70px;
+  left: 70%;
+  transform: translateX(-50%);
+  border-radius: 10px 10px 0 0;
+}
+
+.leg {
+  position: absolute;
+  width: 20px;
+  height: 90px;
+  background-color: var(--ifm-color-primary-darkest);
+  border: 2px solid var(--ifm-color-emphasis-500);
+}
+
+.leg:nth-child(4) { /* Left leg */
+  top: 160px;
+  left: 40%;
+  transform: translateX(-50%);
+  border-radius: 0 0 10px 10px;
+}
+
+.leg:nth-child(5) { /* Right leg */
+  top: 160px;
+  left: 60%;
+  transform: translateX(-50%);
+  border-radius: 0 0 10px 10px;
+}
+
+/* Sensorimotor Diagram */
+.sensorimotorDiagram {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  width: 400px;
+  height: 300px;
+}
+
+.sensors {
+  grid-column: 1;
+  grid-row: 1 / 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.sensor {
+  padding: 8px;
+  background-color: var(--ifm-color-info-background);
+  border: 1px solid var(--ifm-color-info-contrast-background);
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.processing {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: var(--ifm-color-warning-background);
+  border: 1px solid var(--ifm-color-warning-contrast-background);
+  border-radius: 8px;
+}
+
+.actuation {
+  grid-column: 3;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: var(--ifm-color-success-background);
+  border: 1px solid var(--ifm-color-success-contrast-background);
+  border-radius: 8px;
+}
+
+.environment {
+  grid-column: 2 / 4;
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: var(--ifm-color-secondary-background);
+  border: 1px solid var(--ifm-color-secondary-contrast-background);
+  border-radius: 8px;
+}
+
+.loop {
+  grid-column: 1 / 4;
+  grid-row: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background-color: var(--ifm-color-primary-background);
+  color: var(--ifm-color-primary-contrast-foreground);
+  border: 1px solid var(--ifm-color-primary-contrast-background);
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Control Diagram */
+.controlDiagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 300px;
+}
+
+.reference {
+  padding: 12px 24px;
+  background-color: var(--ifm-color-info-background);
+  border: 1px solid var(--ifm-color-info-contrast-background);
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.controller {
+  padding: 12px 24px;
+  background-color: var(--ifm-color-warning-background);
+  border: 1px solid var(--ifm-color-warning-contrast-background);
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.system {
+  padding: 12px 24px;
+  background-color: var(--ifm-color-success-background);
+  border: 1px solid var(--ifm-color-success-contrast-background);
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.sensor {
+  padding: 12px 24px;
+  background-color: var(--ifm-color-secondary-background);
+  border: 1px solid var(--ifm-color-secondary-contrast-background);
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.feedback {
+  padding: 8px 16px;
+  background-color: var(--ifm-color-danger-background);
+  color: var(--ifm-color-danger-contrast-foreground);
+  border: 1px solid var(--ifm-color-danger-contrast-background);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Default Diagram */
+.defaultDiagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 150px;
+}
+
+.robotBody {
+  width: 100px;
+  height: 80px;
+  background-color: var(--ifm-color-primary);
+  border-radius: 8px;
+  position: relative;
+}
+
+.robotBody::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary-light);
+}
+
+.description {
+  margin-top: 12px;
+  font-style: italic;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .diagram {
+    overflow-x: auto;
+  }
+
+  .sensorimotorDiagram {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  .controlDiagram {
+    width: 100%;
+    min-width: 250px;
+  }
+}

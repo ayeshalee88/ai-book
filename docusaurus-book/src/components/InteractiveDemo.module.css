@@ -1,0 +1,79 @@
+.interactiveDemoContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  margin: var(--ifm-spacing-vertical) 0;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.controls {
+  margin: var(--ifm-spacing-vertical) 0;
+}
+
+.controls button {
+  margin-right: var(--ifm-spacing-horizontal);
+  padding: var(--ifm-button-padding-vertical) var(--ifm-button-padding-horizontal);
+  border: none;
+  border-radius: var(--ifm-global-radius);
+  color: var(--ifm-button-color);
+  cursor: pointer;
+  font-weight: var(--ifm-button-font-weight);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.primaryButton {
+  background-color: var(--ifm-color-primary);
+}
+
+.primaryButton:hover {
+  background-color: var(--ifm-color-primary-dark);
+}
+
+.secondaryButton {
+  background-color: var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-0);
+}
+
+.secondaryButton:hover {
+  background-color: var(--ifm-color-emphasis-400);
+}
+
+.controls button:disabled {
+  background-color: var(--ifm-color-emphasis-200);
+  cursor: not-allowed;
+}
+
+/* Focus styles for accessibility */
+.controls button:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: var(--ifm-global-radius);
+}
+
+.results {
+  margin-top: var(--ifm-spacing-vertical);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: var(--ifm-global-radius);
+}
+
+.info {
+  margin-top: var(--ifm-spacing-vertical);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  background-color: var(--ifm-color-info-background);
+  border-radius: var(--ifm-global-radius);
+}
+
+.fallbackContent {
+  padding: 1rem;
+  background-color: var(--ifm-color-warning-background);
+  border-left: 4px solid var(--ifm-color-warning);
+  margin: 1rem 0;
+}
+
+.fallbackContent h4 {
+  margin-top: 0;
+  color: var(--ifm-color-warning-contrast-background);
+}
