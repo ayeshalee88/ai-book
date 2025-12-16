@@ -6,14 +6,14 @@
 }
 
 .featureSvg {
-  height: 200px;
-  width: 290px;
+  height:260px;
+  width: 300px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
   transition: all 0.3s ease;
-  border: 2px solid rgba(26, 188, 156, 0.3); /* Subtle teal border */
+  border: 3px solid rgba(26, 188, 156, 0.3); /* Subtle teal border */
 }
 .featureSvg {
   position: relative;

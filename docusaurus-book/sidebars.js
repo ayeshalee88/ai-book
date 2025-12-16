@@ -3,6 +3,17 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
   tutorialSidebar: [
+    {
+      type: 'category',
+      label: 'Course Overview',
+      items: [
+        'course-overview/syllabus',
+        'course-overview/learning-outcomes',
+        'course-overview/assessments',
+        'course-overview/content-alignment'
+      ],
+      collapsed: false,
+    },
     'intro',
     {
       type: 'category',

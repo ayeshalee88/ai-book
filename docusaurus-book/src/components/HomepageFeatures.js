@@ -4,12 +4,15 @@ import styles from './HomepageFeatures.module.css';
 
 const FeatureList = [
   {
-    title: 'Embodied AI Fundamentals',
+    title: 'Learning Outcomes',
     imageUrl: require('../../static/img/aye.webp').default,
     description: (
       <>
-        Learn the core principles of embodied AI, where intelligence emerges
-        through interaction between AI systems and the physical world.
+        Master Physical AI principles, embodied intelligence,
+        humanoid robotics, and conversational AI through
+        our structured 13-week curriculum.
+      <br />
+        <a href="/docs/course-overview/learning-outcomes">Explore outcomes →</a>
       </>
     ),
   },

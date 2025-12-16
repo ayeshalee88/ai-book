@@ -205,4 +205,4 @@ Understanding these foundational concepts is essential for developing effective 
 
 ## Next Steps
 
-To dive deeper into the technical foundations of embodied AI, continue with the [Fundamentals of Physical AI](./embodied-fundamentals.md) section, where we explore sensorimotor coupling and control theory. For practical implementation, check out our [Tutorials and Hands-on Guides](./tutorials.md). For ethical considerations, see our [Challenges and Ethics](./challenges.md) section.
+To understand the complete learning journey, check out our [Course Syllabus](./course-overview/syllabus.md) which outlines the 13-week curriculum with detailed weekly breakdowns and learning outcomes. To dive deeper into the technical foundations of embodied AI, continue with the [Fundamentals of Physical AI](./embodied-fundamentals.md) section, where we explore sensorimotor coupling and control theory. For practical implementation, check out our [Tutorials and Hands-on Guides](./tutorials.md). For ethical considerations, see our [Challenges and Ethics](./challenges.md) section.

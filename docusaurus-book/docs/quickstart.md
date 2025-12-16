@@ -181,11 +181,12 @@ docs/
 ## Next Steps
 
 1. Browse the book content to familiarize yourself with the structure
-2. Start reading from the [Introduction](intro.md)
-3. Explore the interactive elements in the Embodied AI section
-4. Try running code examples in the AI Integration section
-5. Review the tutorials for hands-on experience
-6. Check the exercise solutions for additional learning resources
+2. Start with the [Course Overview](./course-overview/syllabus.md) to understand the 13-week learning journey
+3. Start reading from the [Introduction](intro.md)
+4. Explore the interactive elements in the Embodied AI section
+5. Try running code examples in the AI Integration section
+6. Review the tutorials for hands-on experience
+7. Check the exercise solutions for additional learning resources
 
 ## Troubleshooting
 
