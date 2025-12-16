@@ -23,6 +23,9 @@ const FeatureList = [
       <>
         Explore the design principles, kinematics, and control systems
         behind humanoid robots that bridge digital and physical intelligence.
+       <br />
+        <a href="/docs/humanoid-robotics/kinematics">Explore Humanoid Robot →</a>
+      
       </>
     ),
   },
@@ -33,6 +36,10 @@ const FeatureList = [
       <>
         Get hands-on experience with tutorials, code examples,
         and real-world case studies from industry leaders.
+      <br />
+        <a href="/docs/resources/exercise-solutions">Explore Exercises →</a>
+      
+    
       </>
     ),
   },
