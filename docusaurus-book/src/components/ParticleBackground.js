@@ -1,13 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
-import styles from './index.module.css';
-
-function ParticleBackground() {
+export default function ParticleBackground() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -128,50 +121,5 @@ function ParticleBackground() {
         zIndex: 0,
       }}
     />
-  );
-}
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <ParticleBackground />
-      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <h1 className="hero__title" style={{ color: 'white', textShadow: '0 4px 12px rgba(0,0,0,0.3)' }}>
-          {siteConfig.title}
-        </h1>
-        <p className="hero__subtitle" style={{ color: 'rgba(255,255,255,0.95)', textShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
-          Bridging the gap between Digital AI & Physical Robotics
-        </p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/course-overview/syllabus"
-            style={{
-              backdropFilter: 'blur(10px)',
-              background: 'rgba(255, 255, 255, 0.2)',
-              border: '2px solid rgba(255, 255, 255, 0.3)',
-              color: 'white',
-              fontWeight: 600,
-            }}>
-            Start the Course - 13 Weeks ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
-
-export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Bridging the gap between digital AI and physical robotics">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
   );
 }

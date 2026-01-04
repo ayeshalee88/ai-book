@@ -1,34 +1,152 @@
-
-
-
-/* Ensure the hero banner itself is full height and centers content vertically */
+/* Hero Banner with Particle Background */
 .heroBanner {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertical centering */
-  align-items: center;     /* Horizontal centering */
-  text-align: center;      /* Centers text elements */
-  min-height: 50vh;       /* Optional: make it full viewport height for strong centering */
-  padding: 4rem 0;         /* Adjust padding if needed */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 78vh;
+  padding: 4rem 0;
 }
 
 /* Center the inner container content explicitly */
-.container {
+.heroBanner .container {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  max-width: 800px;        /* Optional: limit width for better readability */
+  max-width: 800px;
 }
 
-/* Ensure the buttons div is centered */
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+/* Title styling with animation */
+.heroBanner h1,
+.hero__title {
+  margin: 0 auto;
+  width: 100%;
+  font-size: 3rem;
+  font-weight: 800;
+  animation: fadeInUp 1s ease;
 }
 
-/* Optional: Make title and subtitle more centered if needed */
-.hero__title,
+/* Subtitle styling with animation */
+.heroBanner p,
 .hero__subtitle {
   margin: 0 auto;
   width: 100%;
+  font-size: 1.5rem;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button container - centered */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+
+/* Button hover effect */
+.buttons a {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.buttons a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Tablet Responsive */
+@media (max-width: 996px) {
+  .heroBanner {
+    min-height: 55vh;
+    padding: 3rem 0;
+  }
+
+  .heroBanner h1,
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .heroBanner p,
+  .hero__subtitle {
+    font-size: 1.3rem;
+  }
+
+  .heroBanner .container {
+    max-width: 90%;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .heroBanner {
+    min-height: 50vh;
+    padding: 2.5rem 0;
+  }
+
+  .heroBanner h1,
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .heroBanner p,
+  .hero__subtitle {
+    font-size: 1.2rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+/* Small Mobile Responsive */
+@media (max-width: 480px) {
+  .heroBanner {
+    min-height: 45vh;
+    padding: 2rem 0;
+  }
+
+  .heroBanner h1,
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .heroBanner p,
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .heroBanner .container {
+    max-width: 95%;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .heroBanner h1,
+  .heroBanner p,
+  .hero__title,
+  .hero__subtitle,
+  .buttons,
+  .buttons a {
+    animation: none !important;
+    transition: none !important;
+  }
 }

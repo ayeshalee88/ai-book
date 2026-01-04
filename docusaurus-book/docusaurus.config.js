@@ -55,8 +55,8 @@ const config = {
         style: {
           borderRadius: '50%',
           overflow: 'hidden',
-          border: '3px solid #00ff9d',
-          boxShadow: '0 0 15px rgba(0, 255, 157, 0.5)',
+          border: '3px solid #c300ffea',
+          boxShadow: '0 0 15px rgba(30, 0, 255, 0.11)',
         },
       },
       items: [

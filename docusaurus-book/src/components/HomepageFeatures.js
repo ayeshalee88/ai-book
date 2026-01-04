@@ -25,7 +25,6 @@ const FeatureList = [
         behind humanoid robots that bridge digital and physical intelligence.
        <br />
         <a href="/docs/humanoid-robotics/kinematics">Explore Humanoid Robot →</a>
-      
       </>
     ),
   },
@@ -38,8 +37,6 @@ const FeatureList = [
         and real-world case studies from industry leaders.
       <br />
         <a href="/docs/resources/exercise-solutions">Explore Exercises →</a>
-      
-    
       </>
     ),
   },
@@ -48,12 +45,14 @@ const FeatureList = [
 function Feature({imageUrl, title, description}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <img src={imageUrl} className={styles.featureSvg} alt={title} />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+      <div className={styles.featureCard}>
+        <div className="text--center">
+          <img src={imageUrl} className={styles.featureSvg} alt={title} />
+        </div>
+        <div className="text--center padding-horiz--md">
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   );
