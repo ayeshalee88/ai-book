@@ -16,9 +16,9 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
   console.log('CHAT CONTAINER RENDERED - USING useApi()');
   const { messages, addMessage, clearHistory, updateMessage } = useChatHistory();
   const [selectedText, setSelectedText] = useState<string>('');
-  const { loading, error, execute, reset } = useApi('http://127.0.0.1:8000/api/v1/qa');
-  console.log('ChatContainer: FORCING API URL TO → http://127.0.0.1:8000/api/v1/qa');
 
+  const API_URL = process.env.REACT_APP_API_URL || 'https://ayishaalee-backend.hf.space';
+  const { loading, error, execute, reset } = useApi(`${API_URL}/api/v1/qa`);
   const handleSendMessage = useCallback(async (text: string) => {
     // Add user message to the chat
     const userMessage: Message = {
