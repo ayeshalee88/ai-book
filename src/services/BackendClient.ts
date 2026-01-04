@@ -7,7 +7,7 @@ class BackendClient {
   private baseUrl: string;
   private timeout: number;
 
-  constructor(baseUrl: string = 'http://127.0.0.1:8000/api/v1', timeout: number = 30000) {
+  constructor(baseUrl: string = 'https://ayishaalee-backend.hf.space', timeout: number = 30000) {
     console.log('╔══════════════════════════════════════════════╗');
     console.log('║ BACKEND CLIENT INITIALIZED WITH URL:');
     console.log('║ →', baseUrl);
