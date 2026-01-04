@@ -1,32 +1,32 @@
-# Physical AI & Humanoid Robotics: Embodied Intelligence in the Physical World Constitution
+# AI Book RAG Chatbot UI Constitution
 
 ## Core Principles
 
-### I. Accessible Technical Communication
-Technical content must balance theoretical depth with practical accessibility for engineers, researchers, and students. All concepts should be explained with clear language, intuitive examples, and hierarchical organization that builds from fundamentals to advanced applications.
+### I. Production-Grade User Experience
+The RAG chatbot UI must provide a professional, responsive, and intuitive interface for users to interact with the AI Book content. The UI should prioritize usability, accessibility, and performance to ensure a seamless querying experience.
 
-### II. Interactive Learning Experience
-Content must leverage Docusaurus MDX to create engaging, interactive experiences. Chapters should be structured hierarchically with fundamentals, integration techniques, case studies, and deployment guides that allow readers to explore concepts dynamically.
+### II. Seamless Backend Integration
+The UI must integrate tightly with the existing backend RAG API (Qdrant-based) and Docusaurus book without requiring any backend changes. All API interactions must be robust, properly error-handled, and maintain compatibility with existing systems.
 
-### III. Reproducible Code Examples
-All code snippets in Python, ROS, and relevant frameworks must be tested and verified for reproducibility. Examples must bridge digital AI (e.g., LLMs) with physical embodiments (e.g., sensors, actuators) to demonstrate practical implementation of embodied intelligence.
+### III. Claude CLI-Driven Development
+All UI components, wiring, and integration must be generated and managed through Claude CLI tools. This ensures consistency, maintainability, and leverages the full power of AI-assisted development workflows.
 
-### IV. Ethical and Safety First Approach
-Ethical considerations and safety protocols must be integrated throughout all content. Humanoid robotics applications require explicit discussion of safety measures, responsible deployment, and societal impact, with references to credible sources and first principles.
+### IV. Zero-Configuration Deployment
+The UI must be designed for easy deployment with minimal configuration requirements. It should work out-of-the-box with standard deployment platforms and integrate smoothly with existing CI/CD pipelines.
 
-### V. Digital-Physical Bridge Focus
-Content must emphasize the connection between digital brains (AI algorithms) and physical bodies (robot hardware). Visual aids like diagrams for sensorimotor loops and control architectures should illustrate how intelligence manifests in physical form.
+### V. Performance and Scalability Focus
+The UI must be optimized for fast response times, efficient resource usage, and ability to scale with user demand. All components should be lightweight and implement proper caching and loading strategies.
 
-### VI. Modular and Maintained Content
-All materials must be structured modularly for easy updates, SEO optimization, and GitHub Pages deployment. Documentation should support long-term maintenance and evolution of the content as technology advances.
+### VI. Security and Privacy First
+All user interactions and data handling must follow security best practices. The UI should properly handle authentication, protect user privacy, and ensure secure communication with backend services.
 
 ## Technical Standards
-All code examples must be in Python, ROS, and relevant robotics frameworks. Content should include comprehensive code samples, configuration files, and implementation guides that readers can directly apply to their projects.
+All code must follow modern web development standards using React/Next.js, TypeScript, and established UI libraries. The UI should implement proper state management, error boundaries, and follow accessibility guidelines (WCAG 2.1 AA).
 
-## Educational Methodology
-Content development must follow a pedagogical approach that combines theory with hands-on practice. Each concept should be introduced with foundational knowledge, followed by practical examples, and concluded with real-world applications and case studies.
+## User Experience Methodology
+Development must follow a user-centered design approach that prioritizes the querying experience. Each feature should be designed with user workflows in mind, implement proper loading states, and provide clear feedback for all user actions.
 
 ## Governance
-This constitution governs all content creation for the "Physical AI & Humanoid Robotics: Embodied Intelligence in the Physical World" book. All contributions must align with these principles. Updates to this constitution require explicit review and approval process documenting the rationale for changes.
+This constitution governs all development for the AI Book RAG Chatbot UI project. All contributions must align with these principles. Updates to this constitution require explicit review and approval process documenting the rationale for changes.
 
-**Version**: 1.0.0 | **Ratified**: 2025-12-10 | **Last Amended**: 2025-12-10
+**Version**: 1.1.0 | **Ratified**: 2025-12-10 | **Last Amended**: 2025-12-29

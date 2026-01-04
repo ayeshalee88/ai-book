@@ -106,3 +106,5 @@ if __name__ == "__main__":
         port=settings.app_port,
         reload=settings.debug
     )
+
+app=app  # For easy import elsewhere

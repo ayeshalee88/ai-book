@@ -1,11 +1,12 @@
 ---
-description: "Task list for Physical AI & Humanoid Robotics book implementation"
+description: "Task list for transforming Physical AI & Humanoid Robotics book into a structured 13-week course"
 ---
 
-# Tasks: Physical AI & Humanoid Robotics Book
+# Tasks: 13-Week Physical AI & Humanoid Robotics Course
 
 **Input**: Design documents from `/specs/book/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
+**Feature**: Transform existing book content into structured 13-week course format
 
 **Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
 
@@ -26,13 +27,12 @@ description: "Task list for Physical AI & Humanoid Robotics book implementation"
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-**Purpose**: Project initialization and basic structure
+**Purpose**: Project initialization and basic structure for course format
 
-- [x] T001 Create Docusaurus project structure in docusaurus-book/
-- [x] T002 Initialize Docusaurus with proper configuration for book content
-- [x] T003 [P] Configure linting and formatting for Markdown and JavaScript files
-- [x] T004 Set up basic navigation structure in docusaurus.config.js
-- [x] T005 Create initial sidebar configuration in sidebars.js
+- [x] T001 Create course-overview directory structure in docusaurus-book/docs/course-overview/
+- [x] T002 [P] Update docusaurus.config.js to support course navigation
+- [x] T003 [P] Configure course-specific styling in src/css/custom.css
+- [x] T004 Set up course metadata and frontmatter standards
 
 ---
 
@@ -42,146 +42,113 @@ description: "Task list for Physical AI & Humanoid Robotics book implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [x] T006 Configure Docusaurus theme and styling per constitution requirements
-- [x] T007 [P] Set up basic component framework for interactive elements
-- [x] T008 [P] Create content organization structure based on spec sections
-- [x] T009 Implement basic accessibility features per WCAG 2.1 AA standards
-- [x] T010 Configure deployment pipeline for GitHub Pages
+- [x] T005 [P] Create syllabus.md with 13-week breakdown and learning outcomes
+- [x] T006 [P] Create learning-outcomes.md with detailed competency list
+- [x] T007 [P] Create assessments.md with project and capstone details
+- [x] T008 [P] Create content-alignment.md mapping existing content to weekly topics
+- [x] T009 Update sidebars.js to place Course Overview as first category
+- [x] T010 Update homepage hero to emphasize 13-week learning journey
+- [x] T011 Add Learning Outcomes card to homepage with proper linking
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
 ---
 
-## Phase 3: User Story 1 - Core Content Structure (Priority: P1) 🎯 MVP
+## Phase 3: User Story 1 - Course Overview Implementation (Priority: P1) 🎯 MVP
 
-**Goal**: Implement the basic book structure with introduction and first section on embodied AI
+**Goal**: Implement the complete Course Overview section with syllabus, learning outcomes, and assessments
 
-**Independent Test**: Verify the book renders correctly with basic navigation and the first section content is accessible
+**Independent Test**: Verify the course structure renders correctly with proper navigation and all overview content is accessible
 
 ### Implementation for User Story 1
 
-- [x] T011 [P] [US1] Create docs/intro.md with book introduction
-- [x] T012 [P] [US1] Create docs/embodied-ai/introduction.md with basic concepts
-- [x] T013 [P] [US1] Create docs/embodied-ai/fundamentals.md with core principles
-- [x] T014 [P] [US1] Create docs/embodied-ai/sensorimotor-loops.md with practical examples
-- [x] T015 [US1] Update sidebars.js to include embodied-ai section
-- [x] T016 [US1] Add basic navigation links between chapters
-- [x] T017 [US1] Verify content accessibility and readability
+- [x] T012 [P] [US1] Enhance syllabus.md with Docusaurus admonitions (:::tip, :::note)
+- [x] T013 [P] [US1] Enhance learning-outcomes.md with proper tables and formatting
+- [x] T014 [P] [US1] Enhance assessments.md with comprehensive grading rubrics
+- [x] T015 [US1] Add internal links from introduction.md to course syllabus
+- [x] T016 [US1] Add internal links from quickstart.md to course overview
+- [x] T017 [US1] Verify all course overview pages render correctly with proper styling
+- [x] T018 [US1] Test navigation flow from homepage to course overview sections
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
 ---
 
-## Phase 4: User Story 2 - Humanoid Robotics Content (Priority: P2)
+## Phase 4: User Story 2 - Weekly Content Structure (Priority: P2)
 
-**Goal**: Add comprehensive content about humanoid robotics design and control
+**Goal**: Organize existing book content into the 13-week structure with proper linking
 
-**Independent Test**: Verify the humanoid robotics section renders correctly with proper navigation
+**Independent Test**: Verify each week's content is properly organized and accessible through the course structure
 
 ### Implementation for User Story 2
 
-- [x] T018 [P] [US2] Create docs/humanoid-robotics/design-principles.md
-- [x] T019 [P] [US2] Create docs/humanoid-robotics/kinematics.md with mathematical foundations
-- [x] T020 [P] [US2] Create docs/humanoid-robotics/control-systems.md with practical examples
-- [x] T021 [US2] Add ROS/Python code examples for kinematics in static/examples/
-- [x] T022 [US2] Update sidebars.js to include humanoid-robotics section
-- [x] T023 [US2] Link to relevant content from embodied-ai section
+- [x] T019 [P] [US2] Map Week 1-2 content to Introduction and Embodied AI sections
+- [x] T020 [P] [US2] Map Week 3-4 content to Sensorimotor Systems and Perception
+- [x] T021 [P] [US2] Map Week 5-6 content to Reinforcement Learning for Robot Control
+- [x] T022 [P] [US2] Map Week 7-8 content to Sim-to-Real Transfer Techniques
+- [x] T023 [P] [US2] Map Week 9-10 content to Humanoid Robot Development fundamentals
+- [x] T024 [P] [US2] Map Week 11-12 content to Advanced Manipulation and Interaction
+- [x] T025 [P] [US2] Map Week 13 content to Conversational Robotics
+- [x] T026 [US2] Create cross-links between weekly content and existing materials
+- [x] T027 [US2] Update navigation to support weekly progression
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
 ---
 
-## Phase 5: User Story 3 - AI Integration Content (Priority: P3)
+## Phase 5: User Story 3 - Assessment Integration (Priority: P3)
 
-**Goal**: Document integration of AI systems with physical robotic platforms
+**Goal**: Integrate assessment materials with the course structure and create project guidelines
 
-**Independent Test**: Verify AI integration content renders correctly with code examples
+**Independent Test**: Verify all assessment materials are properly linked and accessible from the course structure
 
 ### Implementation for User Story 3
 
-- [x] T024 [P] [US3] Create docs/ai-integration/ml-locomotion.md
-- [x] T025 [P] [US3] Create docs/ai-integration/rl-applications.md with reinforcement learning examples
-- [x] T026 [P] [US3] Create docs/ai-integration/cv-interaction.md with computer vision content
-- [x] T027 [US3] Add Python/ROS code examples for AI integration in static/examples/
-- [x] T028 [US3] Update sidebars.js to include ai-integration section
-- [x] T029 [US3] Include links to simulation environments (Gazebo, PyBullet)
+- [x] T028 [P] [US3] Create ROS 2 package development project documentation
+- [x] T029 [P] [US3] Create Gazebo simulation implementation guidelines
+- [x] T030 [P] [US3] Create Isaac-based perception pipeline documentation
+- [x] T031 [P] [US3] Create capstone project specifications for humanoid robot
+- [x] T032 [US3] Link assessment projects to relevant weekly content
+- [x] T033 [US3] Add submission guidelines and evaluation criteria
+- [x] T034 [US3] Create project templates and starter code
 
 **Checkpoint**: All user stories should now be independently functional
 
 ---
 
-## Phase 6: User Story 4 - Interactive Elements (Priority: P2)
+## Phase 6: User Story 4 - Interactive Course Features (Priority: P2)
 
-**Goal**: Implement interactive components for enhanced learning experience
+**Goal**: Enhance course with interactive elements specifically for the 13-week format
 
-**Independent Test**: Verify interactive demos work correctly and enhance understanding
+**Independent Test**: Verify interactive course elements work correctly and enhance learning experience
 
 ### Implementation for User Story 4
 
-- [x] T030 [P] [US4] Create src/components/InteractiveDemo.js for simulation demos
-- [x] T031 [P] [US4] Create src/components/CodeRunner.js for executable code examples
-- [x] T032 [P] [US4] Create src/components/RobotKinematicsVisualizer.js for 3D visualizations
-- [x] T033 [US4] Integrate interactive components into relevant chapters
-- [x] T034 [US4] Add fallback content for non-JS environments
-- [x] T035 [US4] Test interactive elements across different browsers and devices
+- [x] T035 [P] [US4] Create course progress tracking component
+- [x] T036 [P] [US4] Create weekly milestone badges for student achievement
+- [x] T037 [P] [US4] Update existing interactive components for course context
+- [x] T038 [US4] Integrate progress tracking with existing interactive demos
+- [x] T039 [US4] Add course-specific navigation and progress indicators
+- [x] T040 [US4] Test interactive elements across different course sections
 
-**Checkpoint**: Interactive elements should work independently and enhance content
-
----
-
-## Phase 7: User Story 5 - Case Studies and Tutorials (Priority: P3)
-
-**Goal**: Add practical examples and case studies from real-world implementations
-
-**Independent Test**: Verify case studies are comprehensive and tutorials are reproducible
-
-### Implementation for User Story 5
-
-- [x] T036 [P] [US5] Create docs/case-studies/boston-dynamics.md with Atlas analysis
-- [x] T037 [P] [US5] Create docs/case-studies/tesla-optimus.md with technical details
-- [x] T038 [P] [US5] Create docs/case-studies/open-source-projects.md with community examples
-- [x] T039 [P] [US5] Create docs/tutorials/simulation-environments.md with Gazebo/PyBullet guides
-- [x] T040 [P] [US5] Create docs/tutorials/hardware-integration.md with practical examples
-- [x] T041 [US5] Add complete, tested code examples for each tutorial
-- [x] T042 [US5] Update sidebars.js to include case-studies and tutorials sections
-
-**Checkpoint**: Case studies and tutorials should be independently valuable
+**Checkpoint**: Interactive elements should work independently and enhance course content
 
 ---
 
-## Phase 8: User Story 6 - Ethics and Deployment (Priority: P3)
-
-**Goal**: Address safety, ethics, and deployment considerations for physical AI systems
-
-**Independent Test**: Verify ethical considerations are thoroughly addressed
-
-### Implementation for User Story 6
-
-- [x] T043 [P] [US6] Create docs/challenges-ethics/safety-considerations.md
-- [x] T044 [P] [US6] Create docs/challenges-ethics/human-robot-interaction.md
-- [x] T045 [P] [US6] Create docs/challenges-ethics/societal-impact.md with ethical frameworks
-- [x] T046 [P] [US6] Create docs/deployment/testing-strategies.md for physical environments
-- [x] T047 [P] [US6] Create docs/deployment/real-world-deployment.md with best practices
-- [x] T048 [US6] Update sidebars.js to include challenges-ethics and deployment sections
-
-**Checkpoint**: All major content sections should be complete
-
----
-
-## Phase 9: Polish & Cross-Cutting Concerns
+## Phase 7: Polish & Cross-Cutting Concerns
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [x] T049 [P] Add cross-references between related topics throughout the book
-- [x] T050 [P] Review and improve accessibility features across all content
-- [ ] T051 [P] Optimize images and diagrams for web delivery
-- [x] T052 [P] Add search functionality and improve navigation
-- [x] T053 [P] Create comprehensive index of concepts and terms
-- [x] T054 [P] Verify all code examples are reproducible and well-documented
-- [x] T055 [P] Add exercise solutions and additional learning resources
-- [x] T056 Run quickstart.md validation and update as needed
-- [x] T057 Test complete book functionality and navigation
-- [x] T058 Deploy to GitHub Pages for final review
+- [x] T041 [P] Add cross-references between course sections and weekly content
+- [x] T042 [P] Review and improve accessibility features across all course content
+- [x] T043 [P] Optimize images and diagrams for course delivery
+- [x] T044 [P] Add search functionality specifically for course navigation
+- [x] T045 [P] Create course-specific index and glossary
+- [x] T046 [P] Verify all code examples work within the course context
+- [x] T047 [P] Add course-specific exercise solutions and resources
+- [x] T048 Run complete course validation and update navigation as needed
+- [x] T049 Test complete course functionality and navigation flow
+- [x] T050 Deploy course to GitHub Pages for final review
 
 ---
 
@@ -201,9 +168,7 @@ description: "Task list for Physical AI & Humanoid Robotics book implementation"
 - **User Story 1 (P1)**: Can start after Foundational (Phase 2) - No dependencies on other stories
 - **User Story 2 (P2)**: Can start after Foundational (Phase 2) - May reference US1 but should be independently testable
 - **User Story 3 (P3)**: Can start after Foundational (Phase 2) - May reference US1/US2 but should be independently testable
-- **User Story 4 (P2)**: Can start after Foundational (Phase 2) - Can work with any content section
-- **User Story 5 (P3)**: Can start after Foundational (Phase 2) - May reference previous sections but should be independently testable
-- **User Story 6 (P3)**: Can start after Foundational (Phase 2) - Should be accessible independently
+- **User Story 4 (P2)**: Can start after Foundational (Phase 2) - Can work with any course content
 
 ### Within Each User Story
 

@@ -1,0 +1,102 @@
+# Validation Service API Contract
+
+## Validation Endpoints
+
+### POST /validate
+Validate a semantic query against Qdrant and return results with quality metrics.
+
+**Request**:
+```json
+{
+  "query_text": "string, the semantic query text",
+  "top_k": "integer, number of results to retrieve (default: 5)",
+  "filters": "object, optional filters for the search (default: {})"
+}
+```
+
+**Response (Success - 200)**:
+```json
+{
+  "query_id": "string, unique identifier for the query",
+  "results": [
+    {
+      "id": "string, unique identifier for the chunk",
+      "content": "string, the text content of the retrieved chunk",
+      "similarity_score": "number, similarity score from semantic search (0.0-1.0)",
+      "metadata": {
+        "url": "string, source URL",
+        "section": "string, source section",
+        "chunk_index": "integer, chunk index in source"
+      },
+      "source_document_id": "string, ID of the original document",
+      "position_in_document": "integer, position of the chunk in the original document"
+    }
+  ],
+  "validation_metrics": {
+    "relevance_accuracy": "number, accuracy of retrieved chunks (0.0-1.0)",
+    "traceability_accuracy": "number, accuracy of metadata linking (0.0-1.0)",
+    "consistency_score": "number, consistency across repeated queries (0.0-1.0)",
+    "execution_time_seconds": "number, time taken to execute the query",
+    "pipeline_ready": "boolean, whether pipeline is ready for agent usage"
+  },
+  "status": "string, status of the validation (success, partial, failed)",
+  "issues_found": "array of strings, list of issues identified during validation"
+}
+```
+
+**Response (Bad Request - 400)**:
+```json
+{
+  "error": "string, error message",
+  "code": "string, error code"
+}
+```
+
+**Response (Service Unavailable - 503)**:
+```json
+{
+  "error": "Qdrant service unavailable",
+  "code": "QDRANT_UNAVAILABLE",
+  "details": "string, additional diagnostic information"
+}
+```
+
+### POST /authenticate
+Authenticate with the validation system to access protected functionality.
+
+**Request**:
+```json
+{
+  "token": "string, authentication token"
+}
+```
+
+**Response (Success - 200)**:
+```json
+{
+  "authenticated": "boolean, whether authentication was successful",
+  "expires_at": "string, ISO timestamp when token expires"
+}
+```
+
+**Response (Unauthorized - 401)**:
+```json
+{
+  "error": "Authentication failed",
+  "code": "AUTH_FAILED"
+}
+```
+
+### GET /health
+Check the health of the validation service.
+
+**Response (Success - 200)**:
+```json
+{
+  "status": "string, health status (healthy, degraded, unavailable)",
+  "checks": {
+    "qdrant_connection": "boolean, whether Qdrant is accessible",
+    "authentication": "boolean, whether authentication system is working"
+  }
+}
+```
