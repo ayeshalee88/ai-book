@@ -1,10 +1,12 @@
 import sys
 import os
 
-# Add parent directory to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+# Add backend directory to path
+backend_path = os.path.join(os.path.dirname(__file__), '..', 'backend')
+sys.path.insert(0, backend_path)
 
-from main import app
+# Import the FastAPI app
+from src.api.main import app
 
 # Vercel handler
 handler = app
