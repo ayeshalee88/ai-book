@@ -48,14 +48,14 @@ const config = {
       title: 'Physical AI & Humanoid Robotics',
       logo: {
         alt: 'Physical AI Book Logo',
-        src: 'img/robo.png',
-        srcDark: 'img/robo.png',
+        src: 'img/badam.jpg',
+        srcDark: 'img/badam.jpg',
         width: 50,
-        height: 50,
+        height: 100,
         style: {
           borderRadius: '50%',
           overflow: 'hidden',
-          border: '3px solid #c300ffea',
+          border: '3px solid #0800ffd5',
           boxShadow: '0 0 15px rgba(30, 0, 255, 0.11)',
         },
       },
