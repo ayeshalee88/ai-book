@@ -30,35 +30,32 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
     addMessage(userMessage);
 
     try {
-      // Call the API to get the response
-      const response = await execute(text);
+  
+  const response = await execute({
+    message: text,
+    top_k: 3,
+  });
 
-      // Add assistant message to the chat
-      const assistantMessage: Message = {
-        text: response.answer,
-        sender: 'assistant',
-        timestamp: new Date(),
-      };
+ 
+  const assistantMessage: Message = {
+    text: response.response,
+    sender: 'assistant',
+    timestamp: new Date(),
+    sources: response.sources ?? [],
+  };
 
-      addMessage(assistantMessage);
-    } catch (err) {
-      console.error('Error getting response:', err);
+  addMessage(assistantMessage);
+  } catch (err) {
+  console.error('Error getting response:', err);
 
-      // Add error message to the chat
-      const errorMessage: Message = {
-        text: 'Sorry, I encountered an error processing your request.',
-        sender: 'assistant',
-        timestamp: new Date(),
-      };
+  const errorMessage: Message = {
+    text: 'Sorry, I encountered an error processing your request.',
+    sender: 'assistant',
+    timestamp: new Date(),
+  };
 
-      addMessage(errorMessage);
-    }
-  }, [execute, addMessage]);
-
-  const handleTextSelected = useCallback((text: string) => {
-    // Set the selected text so it can be injected into the input field
-    setSelectedText(text);
-  }, []);
+  addMessage(errorMessage);
+  }
 
   return (
     <div className="chat-container-full">
