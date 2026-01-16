@@ -7,15 +7,17 @@ import { Message } from './types';
 import useApi from '../../hooks/useApi';
 import { useChatHistory } from '../../hooks/useChatHistory';
 
+interface ChatContainerProps {
+  initialMessages?: Message[];
+  onClose: () => void;
+}
 
 const ChatContainer: React.FC<ChatContainerProps> = ({
   initialMessages = [],
   onClose,
-}) => {
-  console.log('CHAT CONTAINER RENDERED - USING useApi()');
-
+  }) => {
   const { messages, addMessage } = useChatHistory();
-  const [selectedText, setSelectedText] = useState<string>('');
+  const [selectedText, setSelectedText] = useState('');
 
   const API_URL =
     process.env.REACT_APP_API_URL ??
@@ -23,16 +25,13 @@ const ChatContainer: React.FC<ChatContainerProps> = ({
 
   const { loading, error, execute } = useApi(`${API_URL}/chat`);
 
-  // Send message to backend
   const handleSendMessage = useCallback(
     async (text: string) => {
-      const userMessage: Message = {
+      addMessage({
         text,
         sender: 'user',
         timestamp: new Date(),
-      };
-
-      addMessage(userMessage);
+      });
 
       try {
         const response = await execute({
@@ -40,17 +39,13 @@ const ChatContainer: React.FC<ChatContainerProps> = ({
           top_k: 3,
         });
 
-        const assistantMessage: Message = {
+        addMessage({
           text: response.response,
           sender: 'assistant',
           timestamp: new Date(),
           sources: response.sources ?? [],
-        };
-
-        addMessage(assistantMessage);
+        });
       } catch (err) {
-        console.error('Error getting response:', err);
-
         addMessage({
           text: 'Sorry, I encountered an error processing your request.',
           sender: 'assistant',
@@ -61,7 +56,6 @@ const ChatContainer: React.FC<ChatContainerProps> = ({
     [execute, addMessage]
   );
 
-  // Capture selected text from the page
   const handleTextSelected = useCallback((text: string) => {
     setSelectedText(text);
   }, []);
@@ -70,7 +64,6 @@ const ChatContainer: React.FC<ChatContainerProps> = ({
     <div className="chat-container-full">
       <TextSelectionListener onTextSelected={handleTextSelected} />
 
-      {/* Header */}
       <div className="chat-header">
         <div className="header-content">
           <div className="logo-placeholder">🤖</div>
@@ -83,41 +76,23 @@ const ChatContainer: React.FC<ChatContainerProps> = ({
         </div>
 
         <div className="header-controls">
-          <button
-            className="control-button"
-            onClick={onClose}
-            aria-label="Close chat"
-            title="Close chat"
-          >
-            ✕
-          </button>
+          <button onClick={onClose} aria-label="Close chat">✕</button>
         </div>
       </div>
 
-      {/* Body */}
       <div className="chat-body">
-        <div className="chat-messages">
-          <MessageList messages={messages} />
+        <MessageList messages={messages} />
 
-          {loading && (
-            <LoadingIndicator visible={true} message="AI is thinking..." />
-          )}
+        {loading && <LoadingIndicator visible message="AI is thinking..." />}
 
-          {error && (
-            <div className="error-message">
-              Error: {String(error)}
-            </div>
-          )}
-        </div>
+        {error && <div className="error-message">Error: {String(error)}</div>}
 
-        <div className="chat-input-form">
-          <ChatInput
-            onSendMessage={handleSendMessage}
-            disabled={loading}
-            placeholder={loading ? 'Processing...' : 'Type your message...'}
-            selectedText={selectedText}
-          />
-        </div>
+        <ChatInput
+          onSendMessage={handleSendMessage}
+          disabled={loading}
+          selectedText={selectedText}
+          placeholder="Type your message..."
+        />
       </div>
     </div>
   );
