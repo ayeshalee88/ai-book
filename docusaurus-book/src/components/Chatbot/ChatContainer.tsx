@@ -12,67 +12,83 @@ interface ChatContainerProps {
   onClose: () => void;
 }
 
-const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onClose }) => {
+const ChatContainer: React.FC<ChatContainerProps> = ({
+  initialMessages = [],
+  onClose,
+}) => {
   console.log('CHAT CONTAINER RENDERED - USING useApi()');
-  const { messages, addMessage, clearHistory, updateMessage } = useChatHistory();
+
+  const { messages, addMessage } = useChatHistory();
   const [selectedText, setSelectedText] = useState<string>('');
 
-  const API_URL = process.env.REACT_APP_API_URL || 'https://ayishaalee-rag-chatbot-api-v2.hf.space';
-  const { loading, error, execute, reset } = useApi(`${API_URL}/chat`);
-  const handleSendMessage = useCallback(async (text: string) => {
-    // Add user message to the chat
-    const userMessage: Message = {
-      text,
-      sender: 'user',
-      timestamp: new Date(),
-    };
+  const API_URL =
+    process.env.REACT_APP_API_URL ??
+    'https://ayishaalee-rag-chatbot-api-v2.hf.space';
 
-    addMessage(userMessage);
+  const { loading, error, execute } = useApi(`${API_URL}/chat`);
 
-    try {
-  
-  const response = await execute({
-    message: text,
-    top_k: 3,
-  });
+  // Send message to backend
+  const handleSendMessage = useCallback(
+    async (text: string) => {
+      const userMessage: Message = {
+        text,
+        sender: 'user',
+        timestamp: new Date(),
+      };
 
- 
-  const assistantMessage: Message = {
-    text: response.response,
-    sender: 'assistant',
-    timestamp: new Date(),
-    sources: response.sources ?? [],
-  };
+      addMessage(userMessage);
 
-  addMessage(assistantMessage);
-  } catch (err) {
-  console.error('Error getting response:', err);
+      try {
+        const response = await execute({
+          message: text,
+          top_k: 3,
+        });
 
-  const errorMessage: Message = {
-    text: 'Sorry, I encountered an error processing your request.',
-    sender: 'assistant',
-    timestamp: new Date(),
-  };
+        const assistantMessage: Message = {
+          text: response.response,
+          sender: 'assistant',
+          timestamp: new Date(),
+          sources: response.sources ?? [],
+        };
 
-  addMessage(errorMessage);
-  }
+        addMessage(assistantMessage);
+      } catch (err) {
+        console.error('Error getting response:', err);
+
+        addMessage({
+          text: 'Sorry, I encountered an error processing your request.',
+          sender: 'assistant',
+          timestamp: new Date(),
+        });
+      }
+    },
+    [execute, addMessage]
+  );
+
+  // Capture selected text from the page
+  const handleTextSelected = useCallback((text: string) => {
+    setSelectedText(text);
+  }, []);
 
   return (
     <div className="chat-container-full">
       <TextSelectionListener onTextSelected={handleTextSelected} />
-      
-      {/* Chat Header with Close Button */}
+
+      {/* Header */}
       <div className="chat-header">
         <div className="header-content">
           <div className="logo-placeholder">🤖</div>
           <div className="header-text">
             <h3>AYI BUDDY</h3>
-            <div className="header-subtitle">Ask anything about our Book 💡📖</div>
+            <div className="header-subtitle">
+              Ask anything about our Book 💡📖
+            </div>
           </div>
         </div>
+
         <div className="header-controls">
-          <button 
-            className="control-button" 
+          <button
+            className="control-button"
             onClick={onClose}
             aria-label="Close chat"
             title="Close chat"
@@ -82,23 +98,27 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
         </div>
       </div>
 
-      {/* Chat Body */}
+      {/* Body */}
       <div className="chat-body">
         <div className="chat-messages">
           <MessageList messages={messages} />
-          {loading && <LoadingIndicator visible={true} message="AI is thinking..." />}
+
+          {loading && (
+            <LoadingIndicator visible={true} message="AI is thinking..." />
+          )}
+
           {error && (
             <div className="error-message">
-              Error: {error}
+              Error: {String(error)}
             </div>
           )}
         </div>
-        
+
         <div className="chat-input-form">
           <ChatInput
             onSendMessage={handleSendMessage}
             disabled={loading}
-            placeholder={loading ? "Processing..." : "Type your message..."}
+            placeholder={loading ? 'Processing...' : 'Type your message...'}
             selectedText={selectedText}
           />
         </div>
