@@ -7,10 +7,6 @@ import { Message } from './types';
 import useApi from '../../hooks/useApi';
 import { useChatHistory } from '../../hooks/useChatHistory';
 
-interface ChatContainerProps {
-  initialMessages?: Message[];
-  onClose: () => void;
-}
 
 const ChatContainer: React.FC<ChatContainerProps> = ({
   initialMessages = [],
