@@ -19,6 +19,7 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
 
   const API_URL = process.env.REACT_APP_API_URL || 'https://ayishaalee-backend.hf.space';
   const { loading, error, execute, reset } = useApi(`${API_URL}/api/v1/qa`);
+  
   const handleSendMessage = useCallback(async (text: string) => {
     // Add user message to the chat
     const userMessage: Message = {
@@ -29,33 +30,36 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
 
     addMessage(userMessage);
 
-  try {
-  
-  const response = await execute({
-    message: text,
-    top_k: 3,
-  });
+    try {
+      const response = await execute({
+        message: text,
+        top_k: 3,
+      });
 
- 
-  const assistantMessage: Message = {
-    text: response.response,
-    sender: 'assistant',
-    timestamp: new Date(),
-    sources: response.sources ?? [],
+      const assistantMessage: Message = {
+        text: response.response,
+        sender: 'assistant',
+        timestamp: new Date(),
+        sources: response.sources ?? [],
+      };
+
+      addMessage(assistantMessage);
+    } catch (err) {
+      console.error('Error getting response:', err);
+
+      const errorMessage: Message = {
+        text: 'Sorry, I encountered an error processing your request.',
+        sender: 'assistant',
+        timestamp: new Date(),
+      };
+
+      addMessage(errorMessage);
+    }
+  }, [addMessage, execute]);
+
+  const handleTextSelected = (text: string) => {
+    setSelectedText(text);
   };
-
-  addMessage(assistantMessage);
-  } catch (err) {
-  console.error('Error getting response:', err);
-
-  const errorMessage: Message = {
-    text: 'Sorry, I encountered an error processing your request.',
-    sender: 'assistant',
-    timestamp: new Date(),
-  };
-
-  addMessage(errorMessage);
-  }
 
   return (
     <div className="chat-container-full">
@@ -105,6 +109,6 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
       </div>
     </div>
   );
-})
+};
 
 export default ChatContainer;
