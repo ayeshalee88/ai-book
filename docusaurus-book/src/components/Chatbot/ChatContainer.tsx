@@ -13,15 +13,13 @@ interface ChatContainerProps {
 }
 
 const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onClose }) => {
-  console.log('CHAT CONTAINER RENDERED - USING useApi()');
   const { messages, addMessage, clearHistory, updateMessage } = useChatHistory();
   const [selectedText, setSelectedText] = useState<string>('');
-
+  
   const API_URL = process.env.REACT_APP_API_URL || 'https://ayishaalee-backend.hf.space';
   const { loading, error, execute, reset } = useApi(`${API_URL}/api/v1/qa`);
-  
+
   const handleSendMessage = useCallback(async (text: string) => {
-    // Add user message to the chat
     const userMessage: Message = {
       text,
       sender: 'user',
@@ -31,16 +29,12 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
     addMessage(userMessage);
 
     try {
-      const response = await execute({
-        message: text,
-        top_k: 3,
-      });
+      const response = await execute(text);
 
       const assistantMessage: Message = {
-        text: response.response,
+        text: response.answer,
         sender: 'assistant',
         timestamp: new Date(),
-        sources: response.sources ?? [],
       };
 
       addMessage(assistantMessage);
@@ -55,17 +49,16 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
 
       addMessage(errorMessage);
     }
-  }, [addMessage, execute]);
+  }, [execute, addMessage]);
 
-  const handleTextSelected = (text: string) => {
+  const handleTextSelected = useCallback((text: string) => {
     setSelectedText(text);
-  };
+  }, []);
 
   return (
     <div className="chat-container-full">
       <TextSelectionListener onTextSelected={handleTextSelected} />
       
-      {/* Chat Header with Close Button */}
       <div className="chat-header">
         <div className="header-content">
           <div className="logo-placeholder">🤖</div>
@@ -86,7 +79,6 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
         </div>
       </div>
 
-      {/* Chat Body */}
       <div className="chat-body">
         <div className="chat-messages">
           <MessageList messages={messages} />
