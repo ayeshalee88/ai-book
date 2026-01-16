@@ -105,6 +105,6 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
       </div>
     </div>
   );
-};
+})
 
 export default ChatContainer;
