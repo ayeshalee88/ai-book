@@ -17,8 +17,8 @@ const ChatContainer: React.FC<ChatContainerProps> = ({ initialMessages = [], onC
   const { messages, addMessage, clearHistory, updateMessage } = useChatHistory();
   const [selectedText, setSelectedText] = useState<string>('');
 
-  const API_URL = process.env.REACT_APP_API_URL || 'https://ayishaalee-backend.hf.space';
-  const { loading, error, execute, reset } = useApi(`${API_URL}/api/v1/qa`);
+  const API_URL = process.env.REACT_APP_API_URL || 'https://ayishaalee-rag-chatbot-api-v2.hf.space';
+  const { loading, error, execute, reset } = useApi(`${API_URL}/api/v1/chat`);
   const handleSendMessage = useCallback(async (text: string) => {
     // Add user message to the chat
     const userMessage: Message = {

@@ -23,7 +23,7 @@ const ChatWidget: React.FC<ChatWidgetProps> = () => {
       {!isOpen && (
         <button className="chat-toggle" onClick={toggleWidget}>
           <img
-          src="/img/buddy.PNG"         // ← your image path
+          src="/img/buddy.png"         // ← your image path
           className="w-32 h-32 rounded-full object-cover"  // adjust size as needed
   />
         </button>
