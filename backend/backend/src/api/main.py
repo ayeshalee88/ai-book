@@ -107,4 +107,4 @@ if __name__ == "__main__":
         reload=settings.debug
     )
 
-app=app  # For easy import elsewhere
+app = app  # For easy import elsewhere
